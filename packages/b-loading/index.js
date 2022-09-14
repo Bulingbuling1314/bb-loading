@@ -38,15 +38,21 @@ BLoading.install = (Vue) => {
     // 将包装好的 toast 挂到Vue的原型上，作为 Vue 实例上的方法
     Vue.prototype.$BLoading = BLoading;
 
-    Vue.directive('bloading', (el, binding) => {
-        if (binding.value) {
-            el.appendChild(instance.$el);
-        } else {
-            try {
-                el.removeChild(instance.$el);
-            } catch {
-                console.log("b-loading is not found");
+    Vue.directive('bloading', {
+        bind: (el, binding) => {
+            let dirInstance = new template().$mount(document.createElement("div"));
+            if (binding.value) {
+                el.appendChild(dirInstance.$el);
+            } else {
+                try {
+                    el.removeChild(instance.$el);
+                } catch {
+                    console.log("b-loading is not found");
+                }
             }
+        },
+        unbind: () => {
+            // debugger
         }
     })
 };

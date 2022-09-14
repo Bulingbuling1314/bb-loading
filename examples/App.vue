@@ -1,13 +1,19 @@
 <template>
-    <div
-        id="app"
-        v-bloading="loading"
-    >
+    <div id="app">
         <img
             alt="Vue logo"
             src="./assets/logo.png"
         >
         <HelloWorld msg="Welcome to Your Vue.js App" />
+        <div
+            v-for="item in 5"
+            :key="item"
+            class="item"
+            v-bloading="!!item"
+            :style="{color: 'red'}"
+        >
+            {{item}}
+        </div>
     </div>
 </template>
 
@@ -27,7 +33,7 @@ export default {
     },
     mounted() {
         // console.log(BLoading)
-        // this.$BLoading.show()
+        this.$BLoading.show()
         // BLoading.show()
         // BLoading.hide()
         // BLoading.hide()
@@ -47,5 +53,9 @@ export default {
     color: #2c3e50;
     margin-top: 60px;
     position: relative;
+}
+.item {
+    position: relative;
+    height: 80px;
 }
 </style>
