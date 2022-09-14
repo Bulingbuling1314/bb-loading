@@ -1,8 +1,8 @@
 {
     "name": "bb-loading",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "private": false,
-    "description": "bb-loading",
+    "description": "loading 加载动画",
     "main": "lib/bb-loading.umd.min.js",
     "keywords": [
         "loading"

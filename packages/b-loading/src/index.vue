@@ -18,16 +18,16 @@ export default /*#__PURE__*/{
 
 <template>
     <div
-        class="b-mask"
+        class="bb-mask"
         :style="{backgroundColor: config.mask}"
     >
-        <div class="b-loading">
+        <div class="bb-loading">
             <component
                 :config="config"
                 :is="(!config.type || config.type === 0) ? 'DefaultIcon' : ('LoadingIcon' + config.type)"
             ></component>
             <div
-                class="b-loading-text"
+                class="bb-loading-text"
                 :style="{color: config.textColor}"
             >{{ config.text }}</div>
         </div>

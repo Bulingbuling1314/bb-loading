@@ -4,7 +4,7 @@
             xmlns="http://www.w3.org/2000/svg"
             xmlns:xlink="http://www.w3.org/1999/xlink"
             t="1663140328389"
-            class="loading-icon-1"
+            class="bb-loading-icon-1"
             viewBox="0 0 1024 1024"
             version="1.1"
             p-id="2541"
@@ -28,7 +28,7 @@ export default {
 </script>
 
 <style scoped>
-.loading-icon-1 {
+.bb-loading-icon-1 {
     animation: rotate 1s linear infinite;
 }
 @keyframes rotate {
