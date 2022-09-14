@@ -41,6 +41,7 @@ BLoading.install = (Vue) => {
     Vue.directive('bloading', {
         bind: (el, binding) => {
             let dirInstance = new template().$mount(document.createElement("div"));
+            dirInstance.config = instance.config
             if (binding.value) {
                 el.appendChild(dirInstance.$el);
             } else {
