@@ -1,5 +1,8 @@
 <template>
-    <div id="app">
+    <div
+        id="app"
+        v-bloading="loading"
+    >
         <img
             alt="Vue logo"
             src="./assets/logo.png"
@@ -10,19 +13,27 @@
 
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-import BLoading from "../packages/b-loading";
+// import BLoading from "../packages/b-loading";
 
 export default {
     name: 'App',
+    data() {
+        return {
+            loading: true
+        }
+    },
     components: {
         HelloWorld
     },
     mounted() {
-        console.log(BLoading)
-        BLoading.show()
-        BLoading.show()
-        BLoading.hide()
-        BLoading.hide()
+        // console.log(BLoading)
+        // this.$BLoading.show()
+        // BLoading.show()
+        // BLoading.hide()
+        // BLoading.hide()
+        // setTimeout(() => {
+        //     this.loading = false
+        // }, 3000)
     }
 }
 </script>
@@ -35,5 +46,6 @@ export default {
     text-align: center;
     color: #2c3e50;
     margin-top: 60px;
+    position: relative;
 }
 </style>

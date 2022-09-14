@@ -1,10 +1,16 @@
 <script>
+import DefaultIcon from './LoadingIcon/default.vue'
+import LoadingIcon1 from './LoadingIcon/loading1.vue'
 export default /*#__PURE__*/{
     name: 'BLoading', // vue component name
     data() {
         return {
             config: {}
         };
+    },
+    components: {
+        DefaultIcon,
+        LoadingIcon1
     },
     methods: {}
 };
@@ -16,12 +22,10 @@ export default /*#__PURE__*/{
         :style="{backgroundColor: config.mask}"
     >
         <div class="b-loading">
-            <div class="b-loading-rotate">
-                <i :style="{backgroundColor: config.color}"></i>
-                <i :style="{backgroundColor: config.color}"></i>
-                <i :style="{backgroundColor: config.color}"></i>
-                <i :style="{backgroundColor: config.color}"></i>
-            </div>
+            <component
+                :config="config"
+                :is="(!config.type || config.type === 0) ? 'DefaultIcon' : ('LoadingIcon' + config.type)"
+            ></component>
             <div
                 class="b-loading-text"
                 :style="{color: config.textColor}"
