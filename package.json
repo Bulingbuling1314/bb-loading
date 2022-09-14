@@ -1,6 +1,6 @@
 {
     "name": "bb-loading",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "private": false,
     "description": "bb-loading",
     "main": "lib/bb-loading.umd.min.js",

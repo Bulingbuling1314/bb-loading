@@ -29,7 +29,7 @@ export default {
 
 <style scoped>
 .loading-icon-1 {
-    animation: rotate 2s linear infinite;
+    animation: rotate 1s linear infinite;
 }
 @keyframes rotate {
     100% {
