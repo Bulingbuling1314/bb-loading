@@ -19,6 +19,7 @@ export default /*#__PURE__*/{
 <template>
     <div
         class="bb-mask"
+        id="bbLoadingMask"
         :style="{backgroundColor: config.mask}"
     >
         <div class="bb-loading">

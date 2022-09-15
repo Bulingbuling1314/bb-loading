@@ -38,6 +38,7 @@ BLoading.install = (Vue) => {
     // 将包装好的 toast 挂到Vue的原型上，作为 Vue 实例上的方法
     Vue.prototype.$BLoading = BLoading;
 
+
     Vue.directive('bloading', {
         bind: (el, binding) => {
             let dirInstance = new template().$mount(document.createElement("div"));
@@ -46,9 +47,26 @@ BLoading.install = (Vue) => {
                 el.appendChild(dirInstance.$el);
             } else {
                 try {
-                    el.removeChild(instance.$el);
+                    el.removeChild(getLoadingEl(el));
                 } catch {
-                    console.log("b-loading is not found");
+                    console.warn("b-loading is not found");
+                }
+            }
+        },
+        update: (el, binding) => {
+            let dirInstance = new template().$mount(document.createElement("div"));
+            dirInstance.config = instance.config
+            if (binding.value) {
+                if (!isLoadingEl(el)) {
+                    return
+                } else {
+                    el.appendChild(dirInstance.$el);
+                }
+            } else {
+                try {
+                    el.removeChild(getLoadingEl(el));
+                } catch {
+                    console.warn("b-loading is not found");
                 }
             }
         },
@@ -61,4 +79,31 @@ BLoading.install = (Vue) => {
 if (typeof window !== "undefined" && window.Vue) {
     BLoading.install(window.Vue);
 }
+
+
+// 判断元素中是否有加载
+function isLoadingEl(el) {
+    let flag = true
+    if (el.children) {
+        for (let i of el.children) {
+            if (i.getAttribute('id') === 'bbLoadingMask') {
+                flag = false
+            }
+        }
+    }
+    return flag
+}
+// 获取元素中的loading元素
+function getLoadingEl(el) {
+    let resEl = null
+    if (el.children) {
+        for (let i of el.children) {
+            if (i.getAttribute('id') === 'bbLoadingMask') {
+                resEl = i
+            }
+        }
+    }
+    return resEl
+}
+
 export default BLoading;

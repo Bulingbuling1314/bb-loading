@@ -1,5 +1,8 @@
 <template>
-    <div id="app">
+    <div
+        id="app"
+        v-bloading="loading"
+    >
         <img
             alt="Vue logo"
             src="./assets/logo.png"
@@ -33,13 +36,13 @@ export default {
     },
     mounted() {
         // console.log(BLoading)
-        this.$BLoading.show()
+        // this.$BLoading.show()
         // BLoading.show()
         // BLoading.hide()
         // BLoading.hide()
-        // setTimeout(() => {
-        //     this.loading = false
-        // }, 3000)
+        setTimeout(() => {
+            this.loading = false
+        }, 3000)
     }
 }
 </script>
